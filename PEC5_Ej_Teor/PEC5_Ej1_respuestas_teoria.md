@@ -31,3 +31,15 @@ Su sintaxis básica sería:
 
 ---
 ## ¿Qué ventajas aportan los FormGroup en la composición de formularios?
+
+Los FormGroup son una forma de agrupar y gestionar un conjunto de formularios y controles relacionados que aportan:
+
+1.  Organización y estructura: Los **FormGroup** proporcionan una manera estructurada de organizar los controles y formularios relacionados. Puedes agrupar los controles en categorías lógicas y anidar **FormGroup** dentro de otros **FormGroup** para crear una estructura jerárquica.
+
+2.  Validación de formularios: Los **FormGroup** permiten aplicar reglas de validación a nivel de grupo. Puedes agregar validadores personalizados o utilizar los validadores predefinidos de Angular para validar el estado de los controles en conjunto. Esto facilita la validación de formularios complejos con reglas de validación interdependientes.
+
+3.  Control de estado: Los **FormGroup** mantienen un estado propio que refleja el estado de los controles que contienen. Puedes acceder al estado general del grupo para comprobar si está válido, inválido, tocado, etc. Esto facilita el control del estado general del formulario y la toma de decisiones basada en ese estado.
+
+4.  Acceso a los valores: Los **FormGroup** permiten acceder a los valores de los controles contenidos de forma sencilla. Puedes obtener los valores de todos los controles en el grupo o acceder a un control específico mediante su nombre.
+
+5.  Integración con directivas de formulario: Los **FormGroup** se integran de manera transparente con otras directivas de formulario de Angular, como ngModel, ngModelGroup, formControl, etc. Esto significa que puedes utilizar las directivas y características de Angular para trabajar con los controles dentro del grupo de manera coherente.
