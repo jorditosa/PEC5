@@ -1,19 +1,32 @@
-<form [formGroup]="article">
-    <div>
-      <label for="model">Nombre</label>
-      <input type="text" id="model" formControlName="model">
-    </div>
-    <div>
-      <label for="price">Precio</label>
-      <input type="number" id="price" formControlName="price">
-    </div>
-    <div>
-        <label for="url">Imagen</label>
-        <input type="text" id="url" formControlName="url">
-      </div>
-    <div>
-        <label for="onSale">En oferta</label>
-        <input type="checkbox" name="onSale" id="onSale">
-    </div>
-    <button type="submit">Agregar</button>
-  </form>
+<h2>Añadir Nave</h2>
+
+<hr>
+
+    <form (ngSubmit)="createArticle(articleForm)" #articleForm="ngForm" class="col-6">
+        <div ngModelGroup="article">
+            <div class="mb-3">
+                <label class="form-label" for="model"></label>
+                <input class="form-control" type="text" name="model" placeholder="Nombre" required ngModel>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price"></label>
+                <input class="form-control" type="number" name="price" id="price" placeholder="Precio" required ngModel>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="url">Imagen</label>
+                <input class="form-control" type="text" name="url" id="url" placeholder="Url Imagen" required ngModel>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="onSale" id="onSale" ngModel>
+                <label class="form-check-label" for="onSale">En venta</label>
+            </div>
+            <div>
+                <button class="btn btn-outline-dark col-4" type="submit">Agregar</button>
+            </div>
+        </div>
+
+    </form>
+
+<pre>
+    {{article | json}}
+</pre>

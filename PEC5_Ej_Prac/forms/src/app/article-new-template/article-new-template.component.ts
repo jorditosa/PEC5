@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Article } from '../models/Article';
 
 @Component({
   selector: 'app-article-new-template',
@@ -8,15 +8,18 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ArticleNewTemplateComponent {
 
-  article: FormGroup;
+  article: Article = new Article();
 
-  constructor(private formBuilder: FormBuilder) {
-    this.article = this.formBuilder.group({
-      model: '',
-      price: 0,
-      url: '',
-      onSale: false
-  });
- }
+  constructor() { }
+
+  createArticle(articleForm: any) {
+    console.log(articleForm);
+    if (articleForm.valid) {
+      this.article = articleForm.value;
+      console.log(this.article);
+    } else {
+      console.log('Formulario no válido');
+    }
+  }
 
 }
