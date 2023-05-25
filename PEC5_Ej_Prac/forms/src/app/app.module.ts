@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleNewTemplateComponent } from './article-new-template/article-new-template.component';
+import { ArticleNewReactiveComponent } from './article-new-reactive/article-new-reactive.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ArticleNewTemplateComponent } from './article-new-template/article-new-
     ArticleListComponent,
     NavbarComponent,
     ArticleNewTemplateComponent,
+    ArticleNewReactiveComponent,
   ],
   imports: [
     BrowserModule,
