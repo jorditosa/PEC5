@@ -1,1 +1,19 @@
-<p>article-new-template works!</p>
+<form [formGroup]="article">
+    <div>
+      <label for="model">Nombre</label>
+      <input type="text" id="model" formControlName="model">
+    </div>
+    <div>
+      <label for="price">Precio</label>
+      <input type="number" id="price" formControlName="price">
+    </div>
+    <div>
+        <label for="url">Imagen</label>
+        <input type="text" id="url" formControlName="url">
+      </div>
+    <div>
+        <label for="onSale">En oferta</label>
+        <input type="checkbox" name="onSale" id="onSale">
+    </div>
+    <button type="submit">Agregar</button>
+  </form>
