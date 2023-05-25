@@ -1,32 +1,37 @@
-<h2>Añadir Nave</h2>
+<section class="col-5 mx-auto">
 
-<hr>
-
-    <form (ngSubmit)="createArticle(articleForm)" #articleForm="ngForm" class="col-6">
+    <h2>Añadir Nave</h2>
+    <form (ngSubmit)="createArticle(articleForm)" #articleForm="ngForm" class="bg-dark rounded p-3">
         <div ngModelGroup="article">
             <div class="mb-3">
                 <label class="form-label" for="model"></label>
-                <input class="form-control" type="text" name="model" placeholder="Nombre" required ngModel>
+                <input class="form-control" type="text" name="model" placeholder="Nombre" required #model="ngModel" ngModel>
+                <small *ngIf="model.invalid && model.touched">El nombre del modelo es Obligatorio</small>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="price"></label>
-                <input class="form-control" type="number" name="price" id="price" placeholder="Precio" required ngModel>
+                <input class="form-control" min="10000" type="number" name="price" id="price" placeholder="Precio" required #price="ngModel" ngModel>
+                <small *ngIf="price.invalid && price.touched">El precio es Obligatorio</small>
+                <small *ngIf="price.errors?.['min']">El precio minimo debe ser de 10000 créditos</small>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="url">Imagen</label>
-                <input class="form-control" type="text" name="url" id="url" placeholder="Url Imagen" required ngModel>
+                <label class="form-label" for="url"></label>
+                <input class="form-control" type="text" name="url" id="url" placeholder="Url de la Imagen" required #url="ngModel" ngModel pattern="^\/assets\/ship-.*">
+                <small *ngIf="url.invalid && url.touched">La imagen es Obligatoria</small>
+                <small *ngIf="url.errors?.['pattern']">La URL de la imegen debe comenzar por '/assets/ship-'</small>
             </div>
             <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" name="onSale" id="onSale" ngModel>
-                <label class="form-check-label" for="onSale">En venta</label>
+                <label class="form-check-label text-light" for="onSale">En venta</label>
+                <input class="form-check-input" type="checkbox" name="onSale" id="onSale" #onSale="ngModel" ngModel>
             </div>
             <div>
-                <button class="btn btn-outline-dark col-4" type="submit">Agregar</button>
+                <button class="btn btn-outline-light col-4" type="submit" [disabled]="articleForm.invalid">Agregar</button>
             </div>
         </div>
 
     </form>
 
-<pre>
-    {{article | json}}
-</pre>
+    <pre class="py-2 mt-4 bg-dark rounded text-light">
+        {{article | json}}
+    </pre>
+</section>
