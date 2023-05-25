@@ -1,1 +1,15 @@
-<p>article-list works!</p>
+<ul class="d-flex justify-content-between">
+    <li *ngFor="let article of articles" class="card" style="width: 18rem;">
+        <img src="{{article.img}}" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h3 class="card-title">{{article.model}}</h3>
+          <span class="card-text fw-bold d-block py-2" [ngClass]="{'reb': article.faction == 'Rebels', 'imp': article.faction == 'Imperial'}">{{article.faction}}</span>
+          <div class="p-2 border rounded d-flex flex-column align-items-center">
+            <h4>{{article.price}}</h4>
+            <!-- Diferentes opcions de compra -->
+            <button class="btn btn-success" *ngIf="article.onSale">BUY</button>
+            <button class="btn btn-danger" *ngIf="!article.onSale">SOLD OUT</button>
+          </div>
+        </div>
+    </li>
+</ul>

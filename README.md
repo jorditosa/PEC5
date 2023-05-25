@@ -8,6 +8,10 @@ https://github.com/jorditosa/PEC5
 ---
 ## Comentarios
 
-Aunque se indica que se puede reaprovechar antigua práctica, he creado una nueva, para volver a practicar con componentes y directivas.
-En la anterior el producto eran pizzas, ahora van a ser naves de una serie mítica.
-Como en el anterior ejercicio, se utilizará la librería de componentes Bootstrap mediante carga por CDN para agilar las vistas en el html.
+Para poder practicar me he tomado la molestia de crear una nueva aplicación para esta PEC.
+
+**Refactoring**
+Lo importante a comentar, es que he eliminado el componente **article-item**, y en su lugar lo he reemplazado por dos componentes que, a mi humilde entender, mejoran la calidad del código:
+
+1.  He añadido un componente **Model**, donde he creado la clase con los datos básicos de cada artículo, entre los que se incluyen los que solicita el enunciado de esta PEC.
+2.  Por otro lado, he generado un **Servicio** para bindear este modelo con el componente **article-list**, donde se renderizan los 4 artículos que quiero añadir, gracias a la función **getAll()** creada en el servicio.

@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ArticleListComponent } from './article-list/article-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ArticleItemComponent } from './article-item/article-item.component';
+import { ArticleListComponent } from './article-list/article-list.component';
+import { ArticleNewTemplateComponent } from './article-new-template/article-new-template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleListComponent,
     NavbarComponent,
-    ArticleItemComponent
+    ArticleNewTemplateComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ArticlesService } from '../services/articles.service';
+import { Article } from '../models/Article';
 
 @Component({
   selector: 'app-article-list',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent {
+
+  articles: Article[] = [];
+
+  constructor(private articleService:ArticlesService) { }
+
+  ngOnInit(): void {
+    this.articles = this.articleService.getAll();
+  }
 
 }
