@@ -1,1 +1,68 @@
-<p>article-new-reactive works!</p>
+<section class="col-5 mx-auto">
+
+    <h2>Añadir Nave</h2>
+    <strong>Reactive</strong>
+    <form class="bg-light rounded p-3" [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+        <div>
+            <div class="mb-3">
+                <label class="form-label" for="model"></label>
+                <input 
+                    class="form-control" 
+                    type="text" name="model" 
+                    placeholder="Nombre" 
+                    required
+                    formControlName="model"
+                    >
+                <small *ngIf="articleForm.get('model')?.invalid && articleForm.get('model')?.touched">El nombre del modelo es Obligatorio</small>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price"></label>
+                <input 
+                    class="form-control" 
+                    min="10000" 
+                    type="number" 
+                    name="price" 
+                    id="price" 
+                    placeholder="Precio" 
+                    required
+                    formControlName="price"
+                    >
+                <small *ngIf="articleForm.get('price')?.invalid && articleForm.get('price')?.touched">El precio es Obligatorio</small>
+                <small *ngIf="articleForm.get('price')?.errors?.['min'] && articleForm.get('price')?.touched">El precio minimo debe ser de 10000 créditos</small>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="url"></label>
+                <input 
+                    class="form-control" 
+                    type="text" name="url" 
+                    id="url" 
+                    placeholder="Url de la Imagen" 
+                    required 
+                    pattern="^\/assets\/ship-.*"
+                    formControlName="url"
+                    >
+                <small *ngIf="articleForm.get('url')?.invalid && articleForm.get('price')?.touched">La imagen es Obligatoria</small>
+                <small *ngIf="articleForm.get('url')?.errors?.['pattern']">La URL de la imegen debe comenzar por '/assets/ship-'</small>
+            </div>
+            <div class="form-check mb-3">
+                <label class="form-check-label text-dark" for="onSale">En venta</label>
+                <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    name="onSale" 
+                    id="onSale" 
+                    formControlName="onSale"
+                    >
+            </div>
+            <div>
+                <button class="btn btn-dark col-4" type="submit" [disabled]="articleForm.invalid">Agregar</button>
+            </div>
+        </div>
+
+    </form>
+
+    <pre class="py-2 mt-4 bg-dark rounded text-light">
+       {{articleForm.value | json}}
+       {{articleForm.valid | json}}
+    </pre>
+</section>
