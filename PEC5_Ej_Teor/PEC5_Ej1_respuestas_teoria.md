@@ -28,6 +28,54 @@ Su sintaxis básica sería:
 ---
 ## ¿Qué son, cuáles son y para qué sirven los estados en los formularios dirigidos por templates?
 
+Existe los estados en el **tracking Form** y los **tracking Controls**.
+
+1.  El Track form state se aplica la clase **ng-submitted** al formulario una vez se hace el submit.
+
+2.  Y por otro lado, los track controls son utilizados añadiendo la directiva **ngModel** a cada elemento que debe ser controlado.
+Una buena utilidad es utilizar estas clases para cambiar los estilos de cada elemento con CSS en función de su estado.
+También pueden controlarse con ngModelGroup, formControl y formGroup.
+
+```
+<table>
+<thead>
+<tr>
+<th align="left">States</th>
+<th align="left">Class if true</th>
+<th align="left">Class if false</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The control has been visited.</td>
+<td align="left"><code>ng-touched</code></td>
+<td align="left"><code>ng-untouched</code></td>
+</tr>
+<tr>
+<td align="left">The control's value has changed.</td>
+<td align="left"><code>ng-dirty</code></td>
+<td align="left"><code>ng-pristine</code></td>
+</tr>
+<tr>
+<td align="left">The control's value is valid.</td>
+<td align="left"><code>ng-valid</code></td>
+<td align="left"><code>ng-invalid</code></td>
+</tr>
+</tbody>
+</table>
+```
+
+*   Pristine: Un control se considera prístino cuando no ha sido modificado por el usuario. Es el estado inicial de un control cuando el formulario se carga por primera vez.
+
+*   Dirty: Un control se considera sucio cuando ha sido modificado por el usuario. Este estado indica que el valor del control ha cambiado desde que se cargó el formulario.
+
+*   Touched: Un control se considera tocado cuando el usuario ha interactuado con él, por ejemplo, haciendo clic en él o modificando su valor. Es útil para mostrar mensajes de validación solo después de que el usuario haya interactuado con el control.
+
+*   Untouched: Un control se considera intocado cuando el usuario no ha interactuado con él. Es el estado inicial de un control cuando el formulario se carga por primera vez.
+
+*   Valid: Un control se considera válido cuando cumple con todas las validaciones definidas para él. Esto incluye tanto las validaciones incorporadas como las validaciones personalizadas definidas por el usuario.
+
+*   Invalid: Un control se considera inválido cuando no cumple con alguna de las validaciones definidas para él.
 
 ---
 ## ¿Qué ventajas aportan los FormGroup en la composición de formularios?
