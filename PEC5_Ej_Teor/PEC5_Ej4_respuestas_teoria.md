@@ -94,15 +94,15 @@ En resumen:
   </thead>
   <tbody>
     <tr>
-      <td>Pristine (Inmaculado)</td>
+      <td>Pristine</td>
       <td>Un campo se encuentra en estado "pristine" si no ha sido modificado por el usuario. Es el estado inicial de un campo cuando se carga el formulario por primera vez.</td>
     </tr>
     <tr>
-      <td>Dirty (Sucio)</td>
+      <td>Dirty</td>
       <td>Un campo se encuentra en estado "dirty" si ha sido modificado por el usuario. Esto significa que se ha cambiado su valor o se ha interactuado con él de alguna manera.</td>
     </tr>
     <tr>
-      <td>Touched (Tocado)</td>
+      <td>Touched</td>
       <td>Un campo se encuentra en estado "touched" si se ha enfocado y luego se ha perdido el enfoque. Es decir, el usuario ha interactuado con el campo y luego ha pasado a otro campo.</td>
     </tr>
   </tbody>
